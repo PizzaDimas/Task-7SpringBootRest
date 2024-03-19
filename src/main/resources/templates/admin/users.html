@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<a href="/admin">go home</a>
+<a href="/logout">logout</a>
+<h1>Users</h1>
+<td>
+    <form th:action="@{'/admin/new'}" method="get">
+        <button type="submit">New</button>
+    </form>
+</td>
+<br/>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td>
+            <a th:href="@{'/admin/' + ${user.id}}" th:text="${user.username}">username</a>
+        </td>
+        <td>
+            <a  th:text="${user.password}">password</a>
+        </td>
+        <td>
+            <a  th:text="${user.mail}">mail</a>
+        </td>
+        <td>
+            <a  th:text="${user.roles}">roles</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

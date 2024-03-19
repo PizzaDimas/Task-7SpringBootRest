@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<a href="/admin">go home</a>
+<a href="/logout">logout</a>
+<h1>Edit User</h1>
+<form th:method="patch" th:action="@{'/admin/' + ${user.getId()}}" th:object="${user}">
+    <label for="name">Enter Name:</label>
+    <input type="text" th:field="*{username}" id="name"/>
+    <br/><br/>
+    <label for="password">Enter password:</label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br/><br/>
+    <label for="mail">Enter mail:</label>
+    <input type="text" th:field="*{mail}" id="mail"/>
+    <br/><br/>
+    <label>Role:</label><br/>
+    <input type="checkbox" th:field="*{roles}" id="role_user" value="1"/>
+    <label for="role_user">User</label><br/>
+    <input type="checkbox" th:field="*{roles}" id="role_admin" value="2"/>
+    <label for="role_admin">Admin</label><br/>
+    <br/><br/>
+    <input type="submit" value="Update"/>
+</form>
+</body>
+</html>

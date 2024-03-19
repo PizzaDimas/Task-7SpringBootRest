@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<a href="/admin">go home</a>
+<a href="/logout">logout</a>
+<h1>User</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>username</th>
+        <th>password</th>
+        <th>mail</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${user.get().username}">Name</td>
+        <td th:text="${user.get().password}">password</td>
+        <td th:text="${user.get().mail}">mail</td>
+        <td>
+            <form method="GET" th:action="@{'/admin/' + ${user.get().getId()} + '/edit'}">
+                <button type="submit">Edit</button>
+            </form>
+        </td>
+        <td>
+            <form th:method="delete" th:action="@{'/admin/' + ${user.get().getId()}}" th:object="${user}">
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
