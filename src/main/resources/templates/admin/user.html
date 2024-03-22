@@ -15,6 +15,7 @@
         <th>username</th>
         <th>password</th>
         <th>mail</th>
+        <th>roles</th>
 
 
     </tr>
@@ -24,6 +25,7 @@
         <td th:text="${user.get().username}">Name</td>
         <td th:text="${user.get().password}">password</td>
         <td th:text="${user.get().mail}">mail</td>
+        <td th:text="${user.get().roles}">roles</td>
         <td>
             <form method="GET" th:action="@{'/admin/' + ${user.get().getId()} + '/edit'}">
                 <button type="submit">Edit</button>

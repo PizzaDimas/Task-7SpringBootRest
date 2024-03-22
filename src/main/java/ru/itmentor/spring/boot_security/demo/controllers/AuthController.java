@@ -1,4 +1,4 @@
-package ru.itmentor.spring.boot_security.demo.controller;
+package ru.itmentor.spring.boot_security.demo.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -37,7 +37,6 @@ public class AuthController {
             return "auth/registration";
         }
         registrationService.register(user);
-
         return "redirect:/login";
     }
 }
